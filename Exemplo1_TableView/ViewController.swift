@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var table: UITableView!
     let animal = ["Urso", "Girafa", "Rinoceronte", "Leão", "Elefante"]
-    let fotos = ["urso", "girafa", "rino", "leao", "ele"]
-    
+    let fotosNomes = ["urso", "girafa", "rino", "leao", "ele"]
+    let imagens = [#imageLiteral(resourceName: "urso"), #imageLiteral(resourceName: "girafa"), #imageLiteral(resourceName: "rino"), #imageLiteral(resourceName: "leao"), #imageLiteral(resourceName: "ele")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let celula = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         celula.textLabel?.text = animal[indexPath.row]
-        celula.imageView?.image = UIImage(named: "\(fotos[indexPath.row]).png")
+        // celula.imageView?.image = UIImage(named: "\(fotosNomes[indexPath.row]).png")
+        celula.imageView?.image = imagens[indexPath.row]
         return celula
     }
     
